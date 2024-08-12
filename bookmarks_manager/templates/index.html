@@ -1,0 +1,25 @@
+{#
+author: Gustavo Sopena
+date started: 2024-08-11 at 1000
+#}
+
+{% extends "base.html" %}
+
+{% block head_block %}
+<title>Bookmarks Manager - Home</title>
+{% endblock head_block %}
+
+{% block body_block %}
+<div id="content">
+    <h1>Bookmarks Manager</h1>
+    
+    <form action="/" method="POST">
+        <input type="text" name="user_url_input" id="input_url_design">
+        <br>
+        <input type="submit" value="Add URL" id="button_add_design">
+    </form>
+    <form action="/view_urls" method="GET">
+        <input type="submit" value="View URLs" id="button_view_urls_design">
+    </form>
+</div> <!-- content -->
+{% endblock body_block %}
