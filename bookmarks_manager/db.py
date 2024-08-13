@@ -1,47 +1,36 @@
 # author: Gustavo Sopena
-# date started: 2024-08-10 at 2040
+# date started: 2024-08-11 at 1747
 
-import sqlite3
 import click
-from flask import Flask, current_app, g
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
 
-def get_database():
-    '''This function gets the database from the current application handling the request.'''
+engine = create_engine('sqlite:///instance/data.db')
+db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 
-    if 'db' not in g:
-        g.db = sqlite3.connect(
-            current_app.config['DATABASE'],
-            detect_types=sqlite3.PARSE_DECLTYPES
-        )
-        g.db.row_factory = sqlite3.Row
+Base = declarative_base()
+Base.query = db_session.query_property()
 
-    return g.db
+def shutdown_session(e=None) -> None:
+        '''This function removes the current database session.'''
 
-def close_database(e=None) -> None:
-    '''This function closes the connection to the database.'''
+        db_session.remove()
 
-    db: sqlite3.Connection = g.pop('db', None)
+def init_db() -> None:
+    '''This function initializes the database by creating the table of data modeled after the python class.'''
 
-    if db is not None:
-        db.close()
+    from bookmarks_manager import models
+    Base.metadata.create_all(bind=engine)
 
-def initialize_database() -> None:
-    '''This function initializes the database.'''
+@click.command('init_db')
+def command_init_db() -> None:
+    '''This function defines a command that integrates with flask so that the database can be created.'''
 
-    db: sqlite3.Connection = get_database()
-
-    with current_app.open_resource('schema.sql') as f:
-        db.executescript(f.read().decode('utf8'))
-
-@click.command('initialize_database_command')
-def initialize_database_command() -> None:
-    '''This function executes a script that either creates or resets the database.'''
-
-    initialize_database()
+    init_db()
     click.echo('Initialized the database.')
 
-def register_database(app: Flask) -> None:
-    '''This function registers the 'initialize_database_command' and 'close_database' with the application.'''
+def register_database(app) -> None:
+    '''This function registers the function 'command_init_db' and 'shutdown_session' with the application.'''
 
-    app.teardown_appcontext(close_database)
-    app.cli.add_command(initialize_database_command)
+    app.teardown_appcontext(shutdown_session)
+    app.cli.add_command(command_init_db)

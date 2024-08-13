@@ -8,3 +8,8 @@ date started: 2024-08-11 at 1300
     font-style: 14px;
     text-align: center;
 }
+
+#sending_url_design {
+    visibility: hidden;
+    display: none;
+}

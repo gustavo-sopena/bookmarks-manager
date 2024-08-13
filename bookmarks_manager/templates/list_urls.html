@@ -1,0 +1,43 @@
+{#
+author: Gustavo Sopena
+date started: 2024-08-11 at 1000
+#}
+
+{% extends "base.html" %}
+
+{% block head_block %}
+<title>Bookmarks Manager - List URLs</title>
+{% endblock head_block %}
+
+{% block body_block %}
+<div id="content">
+    <h1>List URLs</h1>
+    
+    <table>
+        <tr> <!-- header -->
+            <th>id</th>
+            <th>date added</th>
+            <th>url</th>
+            <th>actions</th>
+        </tr>
+        {% for url in saved_urls %}
+            <tr> <!-- rows -->
+                <td>{{ url.url_id }}</td>
+                <td>{{ url.date_added }}</td>
+                <td>{{ url.url_text }}</td>
+                <td>
+                    <div class="button">Update</div>
+                    <div class="button">Delete</div>
+                    {% if url.has_image == true %}
+                        <form action="{{ url_for('download') }}" method="POST">
+                        <input type="text" name="url_to_send" id="sending_url_design" value="{{ url.url_text }}">
+                        <br>
+                        <input type="submit" value="download" id="button_download_design">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div> <!-- content -->
+{% endblock body_block %}
