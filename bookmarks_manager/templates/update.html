@@ -1,0 +1,16 @@
+{#
+author: Gustavo Sopena
+date started: 2024-08-13 at 2230
+#}
+
+{% extends "base.html" %}
+
+{% block body_block %}
+    <div class="main">
+        <form action="/update/{{ url_item.url_id }}" method="POST">
+        <input type="text" name="user_url_input" id="input_url_design" value="{{ url_item.url_text }}">
+        <br>
+        <input type="submit" value="Update URL" id="button_update_design">
+    </form>
+    </div>
+{% endblock body_block %}

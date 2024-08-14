@@ -26,8 +26,8 @@ date started: 2024-08-11 at 1000
                 <td>{{ url.date_added }}</td>
                 <td>{{ url.url_text }}</td>
                 <td>
-                    <div class="button">Update</div>
-                    <div class="button">Delete</div>
+                    <a href="{{ url_for('update', url_id=url.url_id) }}">update</a>
+                    <a href="{{ url_for('delete', url_id=url.url_id) }}">delete</a>
                     {% if url.has_image == true %}
                         <form action="{{ url_for('download') }}" method="POST">
                         <input type="text" name="url_to_send" id="sending_url_design" value="{{ url.url_text }}">
