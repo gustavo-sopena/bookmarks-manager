@@ -1,0 +1,19 @@
+{#
+author: Gustavo Sopena
+date started: 2024-08-10 at 1540
+#}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head_block %}
+    {% endblock head_block %}
+</head>
+<body>
+    {% block body_block %}
+    {% endblock body_block %}
+</body>
+</html>
