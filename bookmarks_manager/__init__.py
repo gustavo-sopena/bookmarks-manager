@@ -24,15 +24,23 @@ def create_app(test_config=None) -> Flask:
     from bookmarks_manager.db import register_database, db_session
     register_database(app)
 
-    @app.route('/', methods=['GET', 'POST'])
+    @app.route('/', methods=['GET'])
     def index() -> str:
         '''This function is the index page of the website.'''
 
+        return render_template('index.html')
+
+    @app.route('/add', methods=['GET', 'POST'])
+    def add() -> str:
+        ''''''
+
         if request.method == 'POST':
-            url_text: str | None = request.form.get('user_url_input')
+            url_name: str | None = request.form.get('name_input')
+            url_text: str | None = request.form.get('url_input')
             date_added: datetime = datetime.now()
 
             new_url: URL_Text = URL_Text(
+                name=url_name,
                 url_text=url_text,
                 date_added=date_added,
                 has_image=URL_Text.contains_image_extension(url_text)
@@ -45,9 +53,9 @@ def create_app(test_config=None) -> Flask:
             except Exception as e:
                 print(f'Error: {e}')
             
-            return redirect('/')
+            return redirect('/add')
         else:
-            return render_template('index.html')
+            return render_template('add.html')
 
     @app.route('/list_urls', methods=['GET'])
     def list_urls() -> str:

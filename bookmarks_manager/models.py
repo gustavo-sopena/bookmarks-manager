@@ -8,7 +8,7 @@ class URL_Text(Base):
     __tablename__ = 'bm_url_text'
     url_id = Column(Integer, primary_key=True, autoincrement=True)
     date_added = Column(DateTime, unique=True)
-    # name = Column(String(100), nullable=False)
+    name = Column(String(100), nullable=False)
     url_text = Column(String(256), unique=True, nullable=False)
     has_image = Column(Boolean, unique=False, nullable=False)
     
@@ -17,6 +17,7 @@ class URL_Text(Base):
     
         return f'''
         URL_Text:
+        - name: {self.name}
         - created at: {self.date_added}
         - url: {self.url_text}
         - has image: {self.has_image}'''

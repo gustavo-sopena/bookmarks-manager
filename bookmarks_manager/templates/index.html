@@ -11,15 +11,29 @@ date started: 2024-08-11 at 1000
 
 {% block body_block %}
 <div id="content">
-    <h1>Bookmarks Manager</h1>
+    <header>
+        <h1>Bookmarks Manager</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('add') }}">Add URL</a>
+        <a href="{{ url_for('list_urls') }}">Show Saved URLs</a>
+    </nav>
+
+    <p>This is Bookmarks Manager!
     
-    <form action="/" method="POST">
+    Use this application to help you organize all of the URLs you have!
+    
+    If you save a URL that has a file, you can download it!</p>
+    
+    {# moved this to the add page, remove from here #}
+    {# <form action="/" method="POST">
         <input type="text" name="user_url_input" id="input_url_design">
         <br>
         <input type="submit" value="Add URL" id="button_add_design">
-    </form>
-    <form action="/list_urls" method="GET">
+    </form> #}
+    {# <form action="/list_urls" method="GET">
         <input type="submit" value="Show Saved URLs" id="button_view_urls_design">
-    </form>
+    </form> #}
 </div> <!-- content -->
 {% endblock body_block %}

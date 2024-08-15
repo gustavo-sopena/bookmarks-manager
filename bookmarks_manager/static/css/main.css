@@ -13,3 +13,21 @@ date started: 2024-08-11 at 1300
     visibility: hidden;
     display: none;
 }
+
+header {
+    /* background-color: #616161;
+    color: white; */
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #616161;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+}

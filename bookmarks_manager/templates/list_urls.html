@@ -6,16 +6,24 @@ date started: 2024-08-11 at 1000
 {% extends "base.html" %}
 
 {% block head_block %}
-<title>Bookmarks Manager - List URLs</title>
+<title>Bookmarks Manager - List of Bookmarks</title>
 {% endblock head_block %}
 
 {% block body_block %}
 <div id="content">
-    <h1>List URLs</h1>
+    <header>
+        <h1>List of Bookmarks</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('add') }}">Add a Bookmark</a>
+        <a href="{{ url_for('index') }}">Home</a>
+    </nav>
     
     <table>
         <tr> <!-- header -->
             <th>id</th>
+            <th>name</th>
             <th>date added</th>
             <th>url</th>
             <th>actions</th>
@@ -23,6 +31,7 @@ date started: 2024-08-11 at 1000
         {% for url in saved_urls %}
             <tr> <!-- rows -->
                 <td>{{ url.url_id }}</td>
+                <td>{{ url.name }}</td>
                 <td>{{ url.date_added }}</td>
                 <td>{{ url.url_text }}</td>
                 <td>
