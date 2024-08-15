@@ -1,5 +1,7 @@
 /*
-author: Gustavo Sopena
+authors:
+- Gustavo Sopena
+- opLynx
 date started: 2024-08-11 at 1300
 */
 
@@ -30,4 +32,44 @@ nav {
 
 nav a {
     color: white;
+}
+
+#add-bookmarks-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.form-label {
+    margin-right: 10px;
+    /* min-width: 100px; */
+}
+
+.form-input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#button_add_design {
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#button_add_design:hover {
+    background-color: #555;
+}
+
+#url_table {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#url_table_row tr {
+    margin-top: 15px;
 }
