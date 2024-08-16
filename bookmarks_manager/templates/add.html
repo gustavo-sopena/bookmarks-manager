@@ -1,0 +1,34 @@
+{#
+author: opLynx
+date started: 2024-08-15 at 1930
+#}
+
+{% extends "base.html" %}
+
+{% block head_block %}
+    <title>Bookmarks Manager - Add URL</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <header>
+        <h1>Add a Bookmark</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('list_urls') }}">Show Saved URLs</a>
+    </nav>
+
+    <main>
+        <form action="/add" id="add-bookmarks-form" autocomplete="on" method="POST">
+            <label for="name" id="name_label" class="form-label">Name:</label>
+            <input type="text" id="name" name="name_input" class="form-input">
+
+            <label for="url" id="url_label" class="form-label">URL:</label>
+            {# type="url" #}
+            <input id="url" name="url_input" class="form-input">
+
+            <input type="submit" value="Add" id="button_add_design">
+        </form>
+    </main>
+{% endblock body_block %}

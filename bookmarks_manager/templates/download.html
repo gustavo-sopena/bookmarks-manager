@@ -1,0 +1,39 @@
+{#
+author: opLynx
+date started: 2024-08-15 at 20:30
+#}
+
+{% extends "base.html" %}
+
+{% block head_block %}
+<title>Bookmarks Manager - Download File</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+{% endblock head_block %}
+
+{% block body_block %}
+<main>
+    <div class="download-file-container" draggable="true" data-url="{{ url_text }}">
+        <img src="{{ url_for('static', filename='assets/file.png') }}" width="50" height="50" alt="File Icon">
+        <p>{{ url_name }}</p>
+    </div>
+
+    <div class="hover-box-container">
+        <!-- Hover box for triggering download -->
+        <div id="hover-box">
+            <p>Drag the file over to begin the download progress.</p>
+        </div>
+    </div>
+
+    <div id="progress-bar-container" style="display:none;">
+        <!-- Progress bar for download status -->
+        <div id="progress-bar"></div>
+        <div id="capacity-mark"></div>
+    </div>
+
+    <div id="download-complete">
+        <!-- Message displayed when download is complete -->
+        <p>Download Completed!</p>
+    </div>
+</main>
+<script src="{{ url_for('static', filename='js/download.js') }}"></script>
+{% endblock body_block %}

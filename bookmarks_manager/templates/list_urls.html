@@ -6,16 +6,24 @@ date started: 2024-08-11 at 1000
 {% extends "base.html" %}
 
 {% block head_block %}
-<title>Bookmarks Manager - List URLs</title>
+<title>Bookmarks Manager - List of Bookmarks</title>
 {% endblock head_block %}
 
 {% block body_block %}
 <div id="content">
-    <h1>List URLs</h1>
+    <header>
+        <h1>List of Bookmarks</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('add') }}">Add URL</a>
+    </nav>
     
-    <table>
+    <table id="url_table">
         <tr> <!-- header -->
             <th>id</th>
+            <th>name</th>
             <th>date added</th>
             <th>url</th>
             <th>actions</th>
@@ -23,17 +31,14 @@ date started: 2024-08-11 at 1000
         {% for url in saved_urls %}
             <tr> <!-- rows -->
                 <td>{{ url.url_id }}</td>
+                <td>{{ url.name }}</td>
                 <td>{{ url.date_added }}</td>
                 <td>{{ url.url_text }}</td>
                 <td>
-                    <div class="button">Update</div>
-                    <div class="button">Delete</div>
+                    <a href="{{ url_for('update', url_id=url.url_id) }}">update</a>
+                    <a href="{{ url_for('delete', url_id=url.url_id) }}">delete</a>
                     {% if url.has_image == true %}
-                        <form action="{{ url_for('download') }}" method="POST">
-                        <input type="text" name="url_to_send" id="sending_url_design" value="{{ url.url_text }}">
-                        <br>
-                        <input type="submit" value="download" id="button_download_design">
-                    </form>
+                        <a href="{{ url_for('download', url_id=url.url_id) }}">download</a>
                     {% endif %}
                 </td>
             </tr>
