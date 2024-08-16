@@ -44,8 +44,8 @@ flask --app bookmarks_manager run
 ## Screenshots
 
 ![bookmarks manager home](screenshots/bm_home.png)
-![bookmarks manager add url 1](screenshots/bm_add_url_1.png.png)
-![bookmarks manager add url 2](screenshots/bm_add_url_2.png.png)
-![bookmarks manager list](screenshots/bm_list.png.png)
-![bookmarks manager download 1](screenshots/bm_download_1.png.png)
-![bookmarks manager download 2](screenshots/bm_download_2.png.png)
+![bookmarks manager add url 1](screenshots/bm_add_url_1.png)
+![bookmarks manager add url 2](screenshots/bm_add_url_2.png)
+![bookmarks manager list](screenshots/bm_list.png)
+![bookmarks manager download 1](screenshots/bm_download_1.png)
+![bookmarks manager download 2](screenshots/bm_download_2.png)
