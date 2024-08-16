@@ -5,6 +5,11 @@ authors:
 date started: 2024-08-11 at 1300
 */
 
+body {
+    background-color: #e5e5e5;
+    font-family: Arial, sans-serif;
+}
+
 #content {
     font-family: serif;
     font-style: 14px;

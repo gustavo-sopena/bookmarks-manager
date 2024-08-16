@@ -16,8 +16,8 @@ date started: 2024-08-11 at 1000
     </header>
 
     <nav>
-        <a href="{{ url_for('add') }}">Add a Bookmark</a>
         <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('add') }}">Add URL</a>
     </nav>
     
     <table id="url_table">
@@ -38,11 +38,7 @@ date started: 2024-08-11 at 1000
                     <a href="{{ url_for('update', url_id=url.url_id) }}">update</a>
                     <a href="{{ url_for('delete', url_id=url.url_id) }}">delete</a>
                     {% if url.has_image == true %}
-                        <form action="{{ url_for('download') }}" method="POST">
-                        <input type="text" name="url_to_send" id="sending_url_design" value="{{ url.url_text }}">
-                        <br>
-                        <input type="submit" value="download" id="button_download_design">
-                    </form>
+                        <a href="{{ url_for('download', url_id=url.url_id) }}">download</a>
                     {% endif %}
                 </td>
             </tr>

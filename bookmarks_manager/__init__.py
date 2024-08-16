@@ -65,14 +65,15 @@ def create_app(test_config=None) -> Flask:
 
         return render_template('list_urls.html', saved_urls=saved_urls)
     
-    @app.route('/download', methods=['POST'])
-    def download() -> str:
+    @app.route('/download/<int:url_id>', methods=['GET'])
+    def download(url_id: int) -> str:
         '''This function is the download page of the website.'''
 
-        if request.method == 'POST':
-            url_text: str | None = request.form.get('url_to_send')
-    
-        return url_text
+        # if request.method == 'POST':
+            # url_text: str | None = request.form.get('url_to_send')
+
+        wanted_url: URL_Text = URL_Text.query.get(url_id)
+        return render_template('download.html', url_name=wanted_url.name, url_text=wanted_url.url_text)
     
     @app.route('/delete/<int:url_id>', methods=['GET'])
     def delete(url_id: int) -> str:

@@ -1,3 +1,6 @@
+// author: opLynx
+// date started: 2024-08-15 at 2025
+
 const downloadFileContainer = document.querySelector('.download-file-container');
 const hoverBox = document.getElementById('hover-box');
 const progressBarContainer = document.getElementById('progress-bar-container');
@@ -10,7 +13,7 @@ let isHovering = false;
 let isDragging = false;
 let isHoldingOverBox = false;
 let holdTimer;
-const HOLD_TIME_BEFORE_STARTING_DOWNLOAD = 0; // instant
+const HOLD_TIME_BEFORE_STARTING_DOWNLOAD = 1; // instant
 let originalPosition = {
     left: downloadFileContainer.offsetLeft,
     top: downloadFileContainer.offsetTop
@@ -93,7 +96,7 @@ function startDownload() {
     if (isHovering) {
         progressBarContainer.style.display = 'flex';
         downloadInterval = setInterval(() => {
-            downloadProgress += 5;
+            downloadProgress += 10;
             progressBar.style.width = `${downloadProgress}%`;
 
             if (downloadProgress >= 100) {
