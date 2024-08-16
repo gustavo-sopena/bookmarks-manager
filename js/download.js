@@ -10,8 +10,7 @@ let isHovering = false;
 let isDragging = false;
 let isHoldingOverBox = false;
 let holdTimer;
-const HOLD_TIME_BEFORE_STARTING_DOWNLOAD = 0; // instantanious (might of spelled it wrong)
-
+const HOLD_TIME_BEFORE_STARTING_DOWNLOAD = 0; // instant
 let originalPosition = {
     left: downloadFileContainer.offsetLeft,
     top: downloadFileContainer.offsetTop
