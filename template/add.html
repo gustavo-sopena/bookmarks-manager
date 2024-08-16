@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a bookmark | Bookmarks Manager</title>
+    <link rel="stylesheet" href="../css/add.css">
+    <link rel="icon" href="/assets/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><h1>Bookmarks Manager</h1></a>
+    </header>
+
+    <main>
+        <h3>Add a bookmark</h3>
+        <form id="add-bookmarks-form" autocomplete="on">
+            <label for="name" id="name-label" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input">
+
+            <label for="url" id="url-label" class="form-label">URL:</label>
+            <input type="url" id="url" name="url" class="form-input">
+
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
+
+        <div id="message"><!-- Display error message  --></div>
+    </main>
+
+    <script src="/js/add.js" defer></script>
+</body>
+</html>
