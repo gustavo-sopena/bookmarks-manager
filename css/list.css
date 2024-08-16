@@ -1,0 +1,125 @@
+
+/*
+* @author: opLynx
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Bookmarks list */
+
+#bookmarks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .bookmark {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bookmark h3 {
+    margin-top: 0;
+  }
+  
+  .bookmark a {
+    text-decoration: none;
+    color: #337ab7;
+  }
+  
+  .bookmark a:hover {
+    color: #23527c;
+  }
+  
+  /* Buttons */
+  
+  button {
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #23527c;
+  }
+  
+  .delete-btn {
+    background-color: #d9534f;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  .edit-btn {
+    background-color: #5cb85c;
+  }
+  
+  .edit-btn:hover {
+    background-color: #449d44;
+  }
+  
+  .cancel-btn {
+    background-color: #666;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #444;
+  }
+  
+  /* Editing window */
+  
+  .editing-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  
+  .editing-window.show {
+    display: block;
+  }
+  
+  /* Error message */
+  
+  #message {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
