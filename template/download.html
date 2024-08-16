@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File | Bookmarks Manager</title>
+    <link rel="stylesheet" href="/css/download.css">
+</head>
+<body>
+    <main>
+        <div class="sidebar-file">
+            <!-- Draggable file container -->
+            <div class="download-file-container" draggable="true" data-url="https://www.w3.org/TR/PNG/iso_8859-1.txt">
+                <img src="/assets/file.png" width="50" height="50" alt="File Icon">
+                <p>sample.txt</p>
+            </div>
+        </div>
+
+        <div class="hover-box-container">
+            <!-- Hover box for triggering download -->
+            <div id="hover-box">
+                <p>Hover and Hold to Download</p>
+            </div>
+        </div>
+
+        <div id="progress-bar-container" style="display:none;">
+            <!-- Progress bar for download status -->
+            <div id="progress-bar"></div>
+            <div id="capacity-mark"></div>
+        </div>
+
+        <div id="download-complete">
+            <!-- Message displayed when download is complete -->
+            <p>Download Completed!</p>
+        </div>
+    </main>
+    <script src="/js/download.js"></script>
+</body>
+</html>

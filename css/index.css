@@ -11,6 +11,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #555;
 }
 
 header {
@@ -19,6 +20,8 @@ header {
     padding: 10px;
     text-align: center;
 }
+
+/* Menu Styles */
 
 #menu{
     display: flex;
@@ -31,10 +34,34 @@ header {
     margin: 10px;
     text-decoration: none;
     color: white;
-    background-color: #333;
+    background-color: #212121;
     border-radius: 5px;
 }
 
 #menu a:hover {
-    background-color: #555;
+    background-color: #171717;
+}
+
+/* Current List Styles */
+
+#current-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#message {
+    list-style: none;
+    padding:0;
+    margin:0;
+    text-align: center;
+}
+
+p {
+    margin: 10px;
+    color: white; 
+}
+a {
+    color: rgb(196, 196, 196);
 }
